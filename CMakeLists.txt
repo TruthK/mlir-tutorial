@@ -26,25 +26,11 @@ include(AddMLIR)
 include(HandleLLVMOptions)
 
 # Add include directories
-include_directories(${LLVM_INCLUDE_DIRS} ${MLIR_INCLUDE_DIRS})
+include_directories(${LLVM_INCLUDE_DIRS})
+include_directories(${MLIR_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 # add_definitions(${LLVM_DEFINITIONS})
 
-# Set the libraries to link against
-set(MLIR_LIBS
-    MLIRIR
-    MLIRParser
-    MLIRPass
-    MLIRTransforms
-    MLIRSupport
-    # Add additional MLIR libraries as needed
-)
-
-set(LLVM_LIBS
-    LLVMSupport
-    LLVMCore
-    # Add additional LLVM libraries as needed
-)
-
-# Add the executable and link libraries
-add_executable(mlir-toy tools/tutorial-opt.cpp)
-target_link_libraries(mlir-toy PRIVATE ${MLIR_LIBS} ${LLVM_LIBS})
+add_subdirectory(tools)
+add_subdirectory(lib)
