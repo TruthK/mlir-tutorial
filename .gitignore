@@ -96,3 +96,4 @@ artifacts/
 *.rej
 **/Output
 third_party/**
+**/.lit_test_times.txt
