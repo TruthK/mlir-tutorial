@@ -1,4 +1,4 @@
-#include "lib/Transform/Affine/AffineFullUnroll.h"
+#include "lib/Transform/Affine/Passes.h"
 #include "mlir/IR/Builders.h"
 #include "mlir/IR/BuiltinOps.h"
 #include "mlir/IR/MLIRContext.h"
@@ -7,13 +7,13 @@
 #include "mlir/Pass/PassRegistry.h"
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
 #include <iostream>
+#include "mlir/Pass/Pass.h"
 
-using namespace mlir;
 int main(int argc, char **argv) {
-  DialectRegistry registry;
-  registerAllDialects(registry);
+  mlir::DialectRegistry registry;
+  mlir::registerAllDialects(registry);
 
-  PassRegistration<AffineFullUnrollPass>();
+  mlir::tutorial::affine::registerTutorialAffinePasses();
 
-  return asMainReturnCode(MlirOptMain(argc, argv, "cnm", registry));
+  return mlir::asMainReturnCode(mlir::MlirOptMain(argc, argv, "cnm", registry));
 }

@@ -1,21 +1,16 @@
 add_mlir_library(AffineFullUnroll
   AffineFullUnroll.cpp
 
-  # Include the necessary directories
   ${PROJECT_SOURCE_DIR}/lib/Transform/Affine/
-  ${ADDITIONAL_HEADER_DIRS}  # Include any additional headers you need
+  ADDITIONAL_HEADER_DIRS 
 
-  # Ensure that the pass depends on MLIRAffineFullUnrollPasses
   DEPENDS
-  MLIRAffineDialect
-  MLIRAffineTransforms
-  MLIRAffineUtils
+  MLIRAffineFullUnrollPasses
 
-  # Link any required MLIR libraries, e.g., for Affine and Func dialects
   LINK_LIBS PUBLIC
-  MLIRAffineDialect
-  MLIRAffineTransforms
-  MLIRAffineUtils
-  MLIRFuncDialect
-  MLIRPass
+
 )
+
+set(LLVM_TARGET_DEFINITIONS Passes.td)
+mlir_tablegen(Passes.h.inc -gen-pass-decls -name TutorialAffine)
+add_public_tablegen_target(MLIRAffineFullUnrollPasses)

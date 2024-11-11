@@ -1,0 +1,22 @@
+#ifndef LIB_DIALECT_POLY_POLYTYPES_TD_
+#define LIB_DIALECT_POLY_POLYTYPES_TD_
+
+include "mlir/IR/AttrTypeBase.td"
+include "PolyDialect.td"
+
+class Poly_Type<string name,string typeMneonic> : TypeDef<Poly_Dialcet, name>{
+    let mnemonic = typeMneonic;
+}
+
+def Polynomial : Poly_Type<"Polynomial","poly">{
+    let summary = "A polynomial with u32 coefficients";
+
+    let description = [{
+    A type for polynomials with integer coefficients in a single-variable polynomial ring.
+    }];
+
+    let parameters = (ins "int":$degreeBound);
+    let assemblyFormat = "`<` $degreeBound `>`";
+}
+
+#endif
