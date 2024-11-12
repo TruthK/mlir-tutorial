@@ -3,7 +3,7 @@
 
 include "mlir/IR/OpBase.td"
 
-def Poly_Dialcet : Dialect {
+def Poly_Dialect : Dialect {
     let name = "poly";
     let summary = "poly dialcet";
     let description = [{"polu dialect disctription"}];
@@ -16,6 +16,9 @@ def Poly_Dialcet : Dialect {
 
     let hasConstantMaterializer = 1;
     let useDefaultTypePrinterParser = 1; 
+    let extraClassDeclaration = [{
+      void registerTypes();
+  }];
 }
 
 #endif

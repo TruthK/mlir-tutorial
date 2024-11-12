@@ -1,5 +1,5 @@
 # CMake minimum version and project information
-cmake_minimum_required(VERSION 3.13.4)
+cmake_minimum_required(VERSION 3.20.0)
 project(mlir-toy VERSION 0.0.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Generate compile_commands.json for IDEs

@@ -45,7 +45,7 @@ def Poly_FromTensorOp : Op<Poly_Dialect, "from_tensor",[Pure]>{
 def Poly_ToTensorOp : Op<Poly_Dialect, "to_tensor",[Pure]>{
     let summary = "Converts a polynomial to a tensor of its integer coefficients.";
     let arguments = (ins Polynomial:$input);
-    let results = (out TensorOf<[AnyInteger]>:$result);
+    let results = (outs TensorOf<[AnyInteger]>:$result);
     let hasFolder = 1 ;
     let assemblyFormat ="$input attr-dict `:` qualified(type($input)) `->` type($result)";
 }
@@ -61,12 +61,12 @@ def Poly_EvalOp : Op<Poly_Dialect, "eval",[AllTypesMatch<["point","output"]>,Has
     let hasCanonicalizer = 1;
 }
 
-def Poly_ConstantOp : Op<PolyDialect, "constant",[Pure, constantLike]>{
-    let summary = " ";
-    let argument = ;
-    let results = ;
-    let assemblyFormat = ;
-    let hasFolder = ;
+def Poly_ConstantOp : Op<Poly_Dialect, "constant",[Pure, ConstantLike]>{
+    let summary = " poly constant op";
+    let arguments = (ins AnyIntElementsAttr:$coefficients);
+    let results = (outs Polynomial:$output);
+    let assemblyFormat = "$coefficients attr-dict `:` qualified(type($output))";
+    let hasFolder = 1;
 
 }
 

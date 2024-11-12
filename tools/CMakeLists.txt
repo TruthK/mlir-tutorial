@@ -7,6 +7,7 @@ set (LIBS
     AffineFullUnroll
     MLIRMlirOptMain
     MLIRPass
+    MLIRPoly
 )
 
 add_llvm_executable(tutorial-opt tutorial-opt.cpp)

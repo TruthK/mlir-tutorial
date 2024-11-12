@@ -4,11 +4,15 @@
 # mlir_tablegen(PolyTypes.cpp.inc --gen-typedef-defs -dialect=poly)
 
 
-add_mlir_dialect(MLIRPoly 
-    PolyOps.cpp
+add_mlir_dialect(PolyOps poly)
 
+add_mlir_dialect_library(MLIRPoly
+    PolyDialect.cpp
+    PolyOps.cpp
+    PolyTypes.cpp
+    
     ADDITIONAL_HEADER_DIRS
     ${PROJECT_SOURCE_DIR}/lib/Dialect/Poly
 
     LINK_LIBS PUBLIC
-)
+    )
