@@ -4,6 +4,8 @@
 #include "mlir/IR/PatternMatch.h"
 #include "llvm/ADT/APInt.h"
 
+#include "lib/Dialect/Poly/PolyCanonicalize.cpp.inc"
+
 #define GET_OP_CLASSES
 #include "lib/Dialect/Poly/PolyOps.cpp.inc"
 using namespace llvm;

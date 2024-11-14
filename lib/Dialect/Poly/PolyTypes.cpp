@@ -11,3 +11,9 @@ using namespace mlir::tutorial::poly;
 #define GET_TYPEDEF_CLASSES
 #include "lib/Dialect/Poly/PolyOpsTypes.cpp.inc"
 
+void PolyDialect::registerTypes(){
+    addTypes<
+    #define GET_TYPEDEF_LIST
+    #include "lib/Dialect/Poly/PolyOpsTypes.cpp.inc" 
+    >();
+}

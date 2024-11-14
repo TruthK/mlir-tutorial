@@ -46,7 +46,6 @@ def Poly_ToTensorOp : Op<Poly_Dialect, "to_tensor",[Pure]>{
     let summary = "Converts a polynomial to a tensor of its integer coefficients.";
     let arguments = (ins Polynomial:$input);
     let results = (outs TensorOf<[AnyInteger]>:$result);
-    let hasFolder = 1 ;
     let assemblyFormat ="$input attr-dict `:` qualified(type($input)) `->` type($result)";
 }
 

@@ -1,7 +1,7 @@
-#include "lib/Dialect/Poly/PolyDialect.h"
-#include "lib/Dialect/Poly/PolyOps.h"
-#include "lib/Dialect/Poly/PolyTypes.h"
-#include "lib/Dialect/Poly/PolyTraits.h"
+#include "PolyDialect.h"
+#include "PolyOps.h"
+#include "PolyTypes.h"
+#include "PolyTraits.h"
 
 #include "mlir/IR/Builders.h"
 #include "mlir/IR/Operation.h"
